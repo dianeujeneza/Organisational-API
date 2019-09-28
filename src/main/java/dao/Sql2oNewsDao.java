@@ -6,6 +6,7 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sql2oNewsDao implements NewsDao{
@@ -25,7 +26,6 @@ public class Sql2oNewsDao implements NewsDao{
         } catch (Sql2oException ex) {
             System.out.println(ex);
         }
-
     }
 
     @Override
@@ -39,7 +39,6 @@ public class Sql2oNewsDao implements NewsDao{
         } catch (Sql2oException ex){
             System.out.println(ex);
         }
-
     }
 
     @Override
@@ -61,12 +60,40 @@ public class Sql2oNewsDao implements NewsDao{
 
     @Override
     public List<Department> getAllDepartmentNews(int id) {
-        return null;
+        List<Department> departments = new ArrayList();
+        String joinQuery = "SELECT departmentId FROM department_news WHERE newsId = :newsId";
+
+        try (Connection con = sql2o.open()) {
+            List<Integer> allDepartmentIds = con.createQuery(joinQuery)
+                    .addParameter("newsId", id)
+                    .executeAndFetch(Integer.class);
+            for (Integer departmentId : allDepartmentIds){
+                String departmentQuery = "SELECT * FROM department WHERE id = :departmentId";
+                departments.add(
+                        con.createQuery(departmentQuery)
+                                .addParameter("departmentId", departmentId)
+                                .executeAndFetchFirst(Department.class));
+            }
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+        return departments;
     }
 
     @Override
     public void deleteById(int id) {
-
+        String sql = "DELETE from news WHERE id=:id";
+        String deleteJoin = "DELETE from department_news WHERE newsId = :newsId";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+            con.createQuery(deleteJoin)
+                    .addParameter("newsId", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
     }
 
     @Override

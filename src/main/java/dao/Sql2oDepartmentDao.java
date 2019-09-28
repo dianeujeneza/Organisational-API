@@ -29,7 +29,6 @@ public class Sql2oDepartmentDao implements DepartmentDao{
         } catch (Sql2oException ex) {
             System.out.println(ex);
         }
-
     }
 
     @Override
@@ -58,11 +57,11 @@ public class Sql2oDepartmentDao implements DepartmentDao{
             List<Integer> allNewsIds = con.createQuery(joinQuery)
                     .addParameter("departmentId", departmentId)
                     .executeAndFetch(Integer.class);
-            for (Integer foodId : allNewsIds){
+            for (Integer newsId : allNewsIds){
                 String newsQuery = "SELECT * FROM news WHERE id = :newsId";
                 news.add(
                         con.createQuery(newsQuery)
-                                .addParameter("newsId", foodId)
+                                .addParameter("newsId", newsId)
                                 .executeAndFetchFirst(News.class));
             }
         } catch (Sql2oException ex){
