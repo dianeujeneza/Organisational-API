@@ -14,4 +14,5 @@ public interface NewsDao {
     List<Department>getAllDepartmentNews(int id);
 
     void deleteById(int id);
+    void clearAll();
 }
