@@ -62,4 +62,5 @@ public class User {
     public int hashCode() {
         return Objects.hash(getUserId(), getUserName(), getUserPosition(), getDepartmentId());
     }
+
 }
