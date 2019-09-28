@@ -55,7 +55,6 @@ public class Sql2oUserDao implements UserDao{
         } catch (Sql2oException ex) {
             System.out.println(ex);
         }
-
     }
 
     @Override
