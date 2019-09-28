@@ -7,9 +7,9 @@ public class News {
 private int newsId;
 private String depNews;
 
-//    public int getNewsId() {
-//        return newsId;
-//    }
+    public int getNewsId() {
+        return newsId;
+    }
 
     public void setNewsId(int newsId) {
         this.newsId = newsId;
