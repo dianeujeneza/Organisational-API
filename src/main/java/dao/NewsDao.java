@@ -11,7 +11,7 @@ public interface NewsDao {
 
     List<News>getAll();
     News findById(int id);
-    List<Department>getAllDepartmentNews(int id);
+    static List<Department>getAllDepartmentNews(int id);
 
     void deleteById(int id);
     void clearAll();
