@@ -1,4 +1,4 @@
-##Organisational Api
+## Organisational Api
 #### This is an application that can help a company to record user their departments and news of each department, 02/10/2019
 #### By Diane Ujeneza
 ## Description
