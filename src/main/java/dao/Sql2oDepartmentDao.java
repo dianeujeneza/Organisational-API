@@ -19,10 +19,11 @@ public class Sql2oDepartmentDao implements DepartmentDao{
 
     @Override
     public void add(Department department) {
-        String sql = "INSERT INTO departments (departmentId,departmentName, description) VALUES (:id, :departmentName, :description)";
+        String sql = "INSERT INTO departments (departmentName, departmentDescription,employeesNumber) VALUES (:departmentName, :departmentDescription,:employeesNumber)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
                     .bind(department)
+                    .throwOnMappingFailure(false)
                     .executeUpdate()
                     .getKey();
             department.setId(id);

@@ -16,7 +16,7 @@ public class Sql2oNewsDao implements NewsDao{
 
     @Override
     public void add(News news) {
-        String sql = "INSERT INTO news (name) VALUES (:name)";
+        String sql = "INSERT INTO news (depNews) VALUES (:depNews)";
         try(Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(news)
@@ -52,8 +52,8 @@ public class Sql2oNewsDao implements NewsDao{
     @Override
     public News findById(int id) {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM news WHERE id = :id")
-                    .addParameter("id", id)
+            return con.createQuery("SELECT * FROM news WHERE newsId = :newsId")
+                    .addParameter("newsId", id)
                     .executeAndFetchFirst(News.class);
         }
     }
@@ -68,7 +68,7 @@ public class Sql2oNewsDao implements NewsDao{
                     .addParameter("newsId", id)
                     .executeAndFetch(Integer.class);
             for (Integer departmentId : allDepartmentIds){
-                String departmentQuery = "SELECT * FROM departments WHERE id = :departmentId";
+                String departmentQuery = "SELECT * FROM departments WHERE departmentId = :departmentId";
                 departments.add(
                         con.createQuery(departmentQuery)
                                 .addParameter("departmentId", departmentId)

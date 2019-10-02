@@ -1,0 +1,48 @@
+{{#block "header"}}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+            {{#block "title" }}Organisational news page{{/block}}
+
+        </title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+        <link href="https://fonts.googleapis.com/css?family=Sansita&display=swap" rel="stylesheet">
+
+        <link rel='stylesheet' href='/css/app.css'>
+        {{#block "styles"}}{{/block}}
+
+    </head>
+    <body>
+{{/block}}
+
+<header id="header">
+    <nav id="nav-bar">
+
+        <a class="nav-item nav-link" href="/">HOME</a>
+        <a class="nav-item nav-link" href="/userForm">USERS</a>
+        <a class="nav-item nav-link" href="/depForm">DEPARTMENTS</a>
+        <a class="nav-item nav-link" href="/newsForm">NEWS</a>
+
+    </nav>
+</header>
+
+<div class="container">
+
+
+    <div class="col-md-12">
+        {{#block "content"}}
+        {{/block}}
+
+    </div>
+</div>
+{{#block "footer"}}
+    </div>
+    <footer class="footer">
+        <div class="container">
+
+        </div>
+    </footer>
+    </body>
+    </html>
+{{/block}}

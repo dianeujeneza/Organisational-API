@@ -1,0 +1,53 @@
+{{#partial "styles"}}
+    <link rel='stylesheet' href='/css/app.css'>
+{{/partial}}
+
+{{#partial "content"}}
+    <h1>User Form</h1><br><br>
+    <hr>
+    <div class="questionnaire">
+        <div class="form" id="users">
+            <form action="/new/userForm" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" name="userName" placeholder="Enter name" required><br>
+                    <label for="position">Position</label>
+                    <input class="form-control" type="text" name="userPosition" placeholder="Enter Position"><br>
+                    <label for="departmentId">Department Id</label>
+                    <input class="form-control" type="number" name="departmentId" placeholder="Enter Department Id" ><br>
+                    <input class="form-control" type="submit" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+<br><br>
+    <br>
+    <br>
+
+    <div id="viewUser">
+    <table class="table table-dark">
+        <thead class="head-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Position</th>
+            <th scope="col">Department Id</th>
+        </tr>
+        </thead>
+    <tbody>
+    {{#if users}}
+        {{#each users}}
+            <tr>
+                <td>{{userId}}</td>
+                <td>{{userName}}</td>
+                <td>{{userPosition}}</td>
+                <td>{{departmentId}}</td>
+            </tr>
+        {{/each}}
+        {{/if}}
+        </tbody>
+        </table>
+    </div>
+
+{{/partial}}
+{{> layout.hbs}}

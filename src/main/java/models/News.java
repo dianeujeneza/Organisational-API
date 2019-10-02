@@ -1,11 +1,16 @@
 package models;
 
+
 import java.util.Objects;
 
-public class News {
+public class News{
 
 private int newsId;
 private String depNews;
+
+    public News(String depNews) {
+        this.depNews = depNews;
+    }
 
     public int getNewsId() {
         return newsId;

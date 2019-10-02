@@ -1,7 +1,7 @@
-package models;
-
-import static org.junit.Assert.*;
-
-public class NewsTest {
-
-}
+//package models;
+//
+//import static org.junit.Assert.*;
+//
+//public class NewsTest {
+//
+//}

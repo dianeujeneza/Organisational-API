@@ -1,0 +1,23 @@
+{{#partial "styles"}}
+    <link rel='stylesheet' href='/css/app.css'>
+{{/partial}}
+
+{{#partial "content"}}
+    <h1>News Form</h1><br><br>
+    <hr>
+    <div class="questionnaire">
+        <div class="form" id="news">
+            <form action="/display" method="POST">
+                <div class="form-group">
+                    <label id="new" for="news">ADD NEWS</label>
+                    <div id="txt">
+                        <textarea class="form-control" rows="5" type="text" id="text-area" name="depNews" placeholder="Write News..." required></textarea>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-secondary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{{/partial}}
+{{> layout.hbs}}

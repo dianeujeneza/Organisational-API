@@ -5,8 +5,15 @@ import java.util.Objects;
 public class Department {
 private int id;
 private String departmentName;
+    private String departmentDescription;
 private int employeesNumber;
-private String departmentDescription;
+
+
+    public Department(String departmentName, String departmentDescription,int employeesNumber) {
+        this.departmentName = departmentName;
+        this.departmentDescription = departmentDescription;
+        this.employeesNumber = employeesNumber;
+    }
 
     public int getId() {
         return id;
@@ -55,4 +62,5 @@ private String departmentDescription;
     public int hashCode() {
         return Objects.hash(getId(), getDepartmentName(), getEmployeesNumber(), getDepartmentDescription());
     }
+
 }

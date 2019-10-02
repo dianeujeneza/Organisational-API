@@ -8,8 +8,7 @@ public class User {
     private String userPosition;
     private int departmentId;
 
-    public User(int userId, String userName, String userPosition, int departmentId) {
-        this.userId = userId;
+    public User(String userName, String userPosition, int departmentId) {
         this.userName = userName;
         this.userPosition = userPosition;
         this.departmentId = departmentId;
