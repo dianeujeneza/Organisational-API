@@ -1,5 +1,5 @@
-#Organisational Api
-#### This is an application that can help a company to record user their departments and news of each department, 26/09/2019
+##Organisational Api
+#### This is an application that can help a company to record user their departments and news of each department, 02/10/2019
 #### By Diane Ujeneza
 ## Description
 This is a web application that will help an organisation to save some of the datas such as their names, the departments they belong to and news 
