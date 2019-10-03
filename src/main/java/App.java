@@ -22,6 +22,7 @@ public class App {
         return 4567;
     }
     public static void main(String[]args){
+        port(getHerokuAssignedPort());
         staticFileLocation("/public");
 
         get("/",(request, response) -> {
